@@ -1,0 +1,59 @@
+# ==========================================================
+# CREDENCIALES Y SECRETOS (NUNCA SUBIR A GITHUB)
+# ==========================================================
+credentials.json
+**/credentials.json
+token.json
+**/token.json
+*client_secret*.json
+.env
+**/.env
+.env.*
+!**/.env.example
+!.env.example
+
+# Archivos locales sensibles o temporales
+PADRON_ESTUDIANTES_Y_APODERADOS.xlsx
+rpa_worker/temp_files/*
+!rpa_worker/temp_files/.gitkeep
+
+# ==========================================================
+# PYTHON (Backend & RPA Worker)
+# ==========================================================
+venv/
+**/venv/
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Base de datos SQLite: conservar rpa_iep.db para métricas Post-Test en Render
+*.db-journal
+*.db-wal
+*.db-shm
+!backend/rpa_iep.db
+
+# ==========================================================
+# NODE / FRONTEND (React + Vite)
+# ==========================================================
+node_modules/
+**/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+*.local
+*.log
+npm-debug.log*
+
+# ==========================================================
+# SISTEMA OPERATIVO Y EDITORES
+# ==========================================================
+.DS_Store
+Thumbs.db
+~$*.xlsx
+~$*.docx
+.vscode/*
+!.vscode/extensions.json
+.idea/
