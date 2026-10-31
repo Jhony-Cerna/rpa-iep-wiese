@@ -1,8 +1,9 @@
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, LogOut, Bot,
   BookOpen, RefreshCw, HelpCircle, Users2, AlertTriangle, MessageSquareWarning, ListFilter
 } from 'lucide-react';
+import { clearSession, getStoredUser } from '../auth';
 
 
 const C = {
@@ -44,6 +45,15 @@ const SectionLabel = ({ label }: { label: string }) => (
 );
 
 const Layout = () => {
+  const navigate = useNavigate();
+  const user = getStoredUser();
+  const initial = (user.nombre || 'A').trim().charAt(0).toUpperCase();
+
+  const handleLogout = () => {
+    clearSession();
+    navigate('/login', { replace: true });
+  };
+
   return (
     <div style={{ display:'flex', height:'100vh', background:C.bg }}>
       {/* Sidebar */}
@@ -77,12 +87,29 @@ const Layout = () => {
         {/* Footer */}
         <div style={{ padding:'10px', borderTop:`1px solid ${C.border}` }}>
           <div style={{ display:'flex', alignItems:'center', gap:10, padding:'8px 10px', borderRadius:8, background:C.bg }}>
-            <div style={{ width:30, height:30, borderRadius:'50%', background:C.blue, display:'flex', alignItems:'center', justifyContent:'center', fontSize:13, fontWeight:700, color:'white' }}>A</div>
-            <div style={{ flex:1, minWidth:0 }}>
-              <p style={{ color:C.text, fontSize:12, fontWeight:600 }}>Administrador</p>
-              <p style={{ color:C.dim, fontSize:10, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>IEP Augusto Wiese</p>
+            <div style={{ width:30, height:30, borderRadius:'50%', background:C.blue, display:'flex', alignItems:'center', justifyContent:'center', fontSize:13, fontWeight:700, color:'white', flexShrink:0 }}>
+              {initial}
             </div>
-            <LogOut size={14} color={C.dim} style={{ cursor:'pointer' }} />
+            <div style={{ flex:1, minWidth:0 }}>
+              <p style={{ color:C.text, fontSize:12, fontWeight:600, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{user.nombre}</p>
+              <p style={{ color:C.dim, fontSize:10, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{user.correo}</p>
+            </div>
+            <button
+              onClick={handleLogout}
+              title="Cerrar sesión"
+              style={{
+                background: 'transparent',
+                border: 'none',
+                padding: 4,
+                borderRadius: 6,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <LogOut size={15} color="#f87171" />
+            </button>
           </div>
         </div>
       </aside>
