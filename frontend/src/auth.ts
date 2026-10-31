@@ -46,6 +46,10 @@ export function getStoredUser(): AuthUser {
   };
 }
 
+export function isAdmin(): boolean {
+  return isAuthenticated() && getStoredUser().rol === 'Administrador';
+}
+
 export function saveSession(token: string, user: AuthUser): void {
   localStorage.setItem(TOKEN_KEY, token);
   localStorage.setItem(USER_KEY, JSON.stringify(user));

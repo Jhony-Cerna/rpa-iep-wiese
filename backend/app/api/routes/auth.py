@@ -26,7 +26,10 @@ def _authenticate_user(db: Session, correo: str, password: str) -> User:
     if not user or not security.verify_password(password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Correo o contraseña incorrectos")
     if not user.estado:
-        raise HTTPException(status_code=403, detail="Usuario inactivo")
+        raise HTTPException(
+            status_code=403,
+            detail="Tu cuenta se encuentra desactivada por el Administrador.",
+        )
     return user
 
 

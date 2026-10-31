@@ -1,9 +1,9 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import {
-  LayoutDashboard, LogOut, Bot,
+  LayoutDashboard, LogOut, Bot, Shield,
   BookOpen, RefreshCw, HelpCircle, Users2, AlertTriangle, MessageSquareWarning, ListFilter
 } from 'lucide-react';
-import { clearSession, getStoredUser } from '../auth';
+import { clearSession, getStoredUser, isAdmin } from '../auth';
 
 
 const C = {
@@ -82,6 +82,13 @@ const Layout = () => {
           <NavItem to="/entrevistas" icon={Users2} label="Entrevistas" />
           <NavItem to="/reclamos" icon={AlertTriangle} label="Reclamos" />
           <NavItem to="/quejas" icon={MessageSquareWarning} label="Quejas y sugerencias" />
+
+          {isAdmin() && (
+            <>
+              <SectionLabel label="ADMINISTRACIÓN" />
+              <NavItem to="/usuarios" icon={Shield} label="Gestión de usuarios" />
+            </>
+          )}
         </nav>
 
         {/* Footer */}
@@ -122,7 +129,12 @@ const Layout = () => {
             <div style={{ width:8, height:8, borderRadius:'50%', background:'#22c55e', animation:'pulse 2s infinite' }} />
             <span style={{ color:C.muted, fontSize:13 }}>Robot RPA en línea</span>
           </div>
-          <span style={{ color:C.dim, fontSize:13 }}>I.E.P. Augusto Wiese</span>
+          <div style={{ display:'flex', alignItems:'center', gap:10 }}>
+            <span style={{ fontSize:11, fontWeight:600, padding:'3px 9px', borderRadius:999, background:'#1e3a8a55', color:'#93c5fd', border:`1px solid ${C.border}` }}>
+              Rol: {user.rol || 'Operador'}
+            </span>
+            <span style={{ color:C.dim, fontSize:13 }}>I.E.P. Augusto Wiese</span>
+          </div>
         </header>
 
         {/* Página */}

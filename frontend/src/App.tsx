@@ -10,11 +10,19 @@ import Consultas from './pages/Consultas';
 import Entrevistas from './pages/Entrevistas';
 import Reclamos from './pages/Reclamos';
 import Quejas from './pages/Quejas';
-import { isAuthenticated } from './auth';
+import Usuarios from './pages/Usuarios';
+import { isAuthenticated, isAdmin } from './auth';
 
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   if (!isAuthenticated()) {
     return <Navigate to="/login" replace />;
+  }
+  return <>{children}</>;
+};
+
+const AdminRoute = ({ children }: { children: ReactNode }) => {
+  if (!isAdmin()) {
+    return <Navigate to="/dashboard" replace />;
   }
   return <>{children}</>;
 };
@@ -42,6 +50,14 @@ function App() {
           <Route path="entrevistas"   element={<Entrevistas />} />
           <Route path="reclamos"      element={<Reclamos />} />
           <Route path="quejas"        element={<Quejas />} />
+          <Route
+            path="usuarios"
+            element={
+              <AdminRoute>
+                <Usuarios />
+              </AdminRoute>
+            }
+          />
           {/* Ruta legacy por compatibilidad */}
           <Route path="requests"      element={<Navigate to="/libretas" replace />} />
         </Route>
