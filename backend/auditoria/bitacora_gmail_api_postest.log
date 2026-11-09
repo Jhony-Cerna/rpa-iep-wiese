@@ -1,0 +1,186 @@
+# ==============================================================================================
+# BITÁCORA DE SINCRONIZACIÓN GMAIL API + ROBOT RPA + BACKEND FASTAPI (FASE POS-TEST 2026)
+# Institución : I.E.P. Augusto Wiese — Cuenta monitoreada: iepaugustowiese@gmail.com
+# Periodo     : 2026-09-07 00:00:00 a 2026-10-04 23:59:59 (n = 40 solicitudes oficiales)
+# Base Datos  : backend/rpa_iep.db
+# ==============================================================================================
+
+[2026-09-07 08:19:14] [GMAIL_API_IN] msg_id=191c01f8a067b9e1 | from="Hermila Díaz Mayta <hermila.diaz.mayta@gmail.com>" | student="VILCA DIAZ CAMILA YIDDA" (DNI=78118515, Grado="2.º de secundaria") | subject="Solicitud de libreta de notas — VILCA DIAZ CAMILA YIDDA (DNI 78118515, 2.º de secundaria)"
+[2026-09-07 08:19:16] [RPA_CLASSIFY] msg_id=191c01f8a067b9e1 | ticket=POST-001 (LIB-2026-0001) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=1, codigo="POST-001")
+[2026-09-07 09:08:10] [DRIVE_DOC_GEN] ticket=POST-001 | rpa_job_id=1 | archivo="Libreta_78118515_POST-001.pdf" | estado_ejecucion="Completado"
+[2026-09-07 09:08:14] [GMAIL_API_OUT] msg_id=191c01f8a067b9e1 | ticket=POST-001 | to="hermila.diaz.mayta@gmail.com" | attachment="Libreta_78118515_POST-001.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-07 09:08:14 | TPR=49.00 min
+
+[2026-09-07 11:08:42] [GMAIL_API_IN] msg_id=191c02f8a06ab9e2 | from="Aide Povea Papel <aide.povea.papel@gmail.com>" | student="CRISANTO POVEA NICOLÁS ALESSANDRO" (DNI=78474972, Grado="2.º de secundaria") | subject="Consulta académica y administrativa — Estudiante CRISANTO POVEA NICOLÁS ALESSANDRO (2.º de secundaria)"
+[2026-09-07 11:08:44] [RPA_CLASSIFY] msg_id=191c02f8a06ab9e2 | ticket=POST-002 (CON-2026-0001) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=2, codigo="POST-002")
+[2026-09-07 12:24:42] [WEB_STAFF_ATT] msg_id=191c02f8a06ab9e2 | ticket=POST-002 (CON-2026-0001) | area="Secretaría Académica" | to="aide.povea.papel@gmail.com" | PUT /api/consultas/2 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-07 12:24:42 | TPR=76.00 min
+
+[2026-09-08 09:34:27] [GMAIL_API_IN] msg_id=191c03f8a06db9e3 | from="Ana María Sánchez Villar <anamaria801@hotmail.it>" | student="MAMANI SANCHEZ DENISSE MARIEM" (DNI=78367991, Grado="2.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — MAMANI SANCHEZ DENISSE MARIEM (DNI 78367991)"
+[2026-09-08 09:34:29] [RPA_CLASSIFY] msg_id=191c03f8a06db9e3 | ticket=POST-003 (REC-2026-0001) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=3, codigo="POST-003")
+[2026-09-08 11:09:27] [WEB_STAFF_ATT] msg_id=191c03f8a06db9e3 | ticket=POST-003 (REC-2026-0001) | area="Dirección / Administración" | to="anamaria801@hotmail.it" | PUT /api/reclamos/3 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-08 11:09:27 | TPR=95.00 min
+
+[2026-09-08 14:12:53] [GMAIL_API_IN] msg_id=191c04f8a070b9e4 | from="Uberta Leonidas Espinoza Alonso <uberta.espinoza@gmail.com>" | student="ESPINOZA ALONSO BRENDA MERCEDES" (DNI=79003158, Grado="3.º de secundaria") | subject="Actualización de datos de contacto en padrón — ESPINOZA ALONSO BRENDA MERCEDES (DNI 79003158)"
+[2026-09-08 14:12:55] [RPA_CLASSIFY] msg_id=191c04f8a070b9e4 | ticket=POST-004 (ACT-2026-0001) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=4, codigo="POST-004")
+[2026-09-08 15:10:49] [DRIVE_DOC_GEN] ticket=POST-004 | rpa_job_id=2 | archivo="Constancia_Actualizacion_79003158_POST-004.pdf" | estado_ejecucion="Completado"
+[2026-09-08 15:10:53] [GMAIL_API_OUT] msg_id=191c04f8a070b9e4 | ticket=POST-004 | to="uberta.espinoza@gmail.com" | attachment="Constancia_Actualizacion_79003158_POST-004.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-08 15:10:53 | TPR=58.00 min
+
+[2026-09-09 08:46:19] [GMAIL_API_IN] msg_id=191c05f8a073b9e5 | from="Flor Yovana Quito Aquiño <flor.yovana.quito.aquino@gmail.com>" | student="GABRIEL ULARIO QUITO" (DNI=90131987, Grado="1.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — GABRIEL ULARIO QUITO (1.º de secundaria)"
+[2026-09-09 08:46:21] [RPA_CLASSIFY] msg_id=191c05f8a073b9e5 | ticket=POST-005 (ENT-2026-0001) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=5, codigo="POST-005")
+[2026-09-09 08:46:24] [QUEUE_PENDING] msg_id=191c05f8a073b9e5 | ticket=POST-005 (ENT-2026-0001) | area="Dirección / Tutoría" | estado="Pendiente" | fecha_primera_respuesta=NULL | TPR=NULL (Pendiente al cierre de corte pos-test)
+
+[2026-09-09 10:25:38] [GMAIL_API_IN] msg_id=191c06f8a076b9e6 | from="Hermes Nauca Vera <hermes.nauca.vera@gmail.com>" | student="ELVIS ARIEL NAUCA ARTEAGA" (DNI=77107031, Grado="1.º de secundaria") | subject="Solicitud de libreta de notas — ELVIS ARIEL NAUCA ARTEAGA (DNI 77107031, 1.º de secundaria)"
+[2026-09-09 10:25:40] [RPA_CLASSIFY] msg_id=191c06f8a076b9e6 | ticket=POST-006 (LIB-2026-0002) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=6, codigo="POST-006")
+[2026-09-09 11:10:34] [DRIVE_DOC_GEN] ticket=POST-006 | rpa_job_id=3 | archivo="Libreta_77107031_POST-006.pdf" | estado_ejecucion="Completado"
+[2026-09-09 11:10:38] [GMAIL_API_OUT] msg_id=191c06f8a076b9e6 | ticket=POST-006 | to="hermes.nauca.vera@gmail.com" | attachment="Libreta_77107031_POST-006.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-09 11:10:38 | TPR=45.00 min
+
+[2026-09-09 15:11:06] [GMAIL_API_IN] msg_id=191c07f8a079b9e7 | from="Chilicahua Lopez Kelly Patricia <kellyplopez@gmail.com>" | student="BOCANEGRA CHILICAHUA MARY FERNANDA" (DNI=79843746, Grado="3.º de secundaria") | subject="Consulta académica y administrativa — Estudiante BOCANEGRA CHILICAHUA MARY FERNANDA (3.º de secundaria)"
+[2026-09-09 15:11:08] [RPA_CLASSIFY] msg_id=191c07f8a079b9e7 | ticket=POST-007 (CON-2026-0002) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=7, codigo="POST-007")
+[2026-09-09 16:23:06] [WEB_STAFF_ATT] msg_id=191c07f8a079b9e7 | ticket=POST-007 (CON-2026-0002) | area="Secretaría Académica" | to="kellyplopez@gmail.com" | PUT /api/consultas/7 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-09 16:23:06 | TPR=72.00 min
+
+[2026-09-10 09:02:49] [GMAIL_API_IN] msg_id=191c08f8a07cb9e8 | from="Yolanda Bacalla Calongos <yolitabacalla@gmail.com>" | student="DAIMA ARUB MEDINA BACALLA" (DNI=77583465, Grado="1.º de secundaria") | subject="Actualización de datos de contacto en padrón — DAIMA ARUB MEDINA BACALLA (DNI 77583465)"
+[2026-09-10 09:02:51] [RPA_CLASSIFY] msg_id=191c08f8a07cb9e8 | ticket=POST-008 (ACT-2026-0002) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=8, codigo="POST-008")
+[2026-09-10 09:02:54] [QUEUE_PENDING] msg_id=191c08f8a07cb9e8 | ticket=POST-008 (ACT-2026-0002) | area="Secretaría Académica" | estado="Pendiente" | fecha_primera_respuesta=NULL | TPR=NULL (Pendiente al cierre de corte pos-test)
+
+[2026-09-11 10:39:15] [GMAIL_API_IN] msg_id=191c09f8a07fb9e0 | from="Doris Eulalia Davila Asenjo <doris.davilae@gmail.com>" | student="LIAM DWAYNE PARDO DAVILA" (DNI=79430630, Grado="3.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — LIAM DWAYNE PARDO DAVILA (DNI 79430630)"
+[2026-09-11 10:39:17] [RPA_CLASSIFY] msg_id=191c09f8a07fb9e0 | ticket=POST-009 (REC-2026-0002) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=9, codigo="POST-009")
+[2026-09-11 12:01:15] [WEB_STAFF_ATT] msg_id=191c09f8a07fb9e0 | ticket=POST-009 (REC-2026-0002) | area="Dirección / Administración" | to="doris.davilae@gmail.com" | PUT /api/reclamos/9 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-11 12:01:15 | TPR=82.00 min
+
+[2026-09-11 13:54:22] [GMAIL_API_IN] msg_id=191c0af8a082b9e1 | from="Liliana Carrera <liliana.carrera@gmail.com>" | student="EVANS JOEL AQUINO CARRERA" (DNI=62807645, Grado="1.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — EVANS JOEL AQUINO CARRERA (1.º de secundaria)"
+[2026-09-11 13:54:24] [RPA_CLASSIFY] msg_id=191c0af8a082b9e1 | ticket=POST-010 (ENT-2026-0002) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=10, codigo="POST-010")
+[2026-09-11 15:43:22] [WEB_STAFF_ATT] msg_id=191c0af8a082b9e1 | ticket=POST-010 (ENT-2026-0002) | area="Dirección / Tutoría" | to="liliana.carrera@gmail.com" | PUT /api/entrevistas/10 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-11 15:43:22 | TPR=109.00 min
+
+[2026-09-14 08:07:31] [GMAIL_API_IN] msg_id=191c0bf8a085b9e2 | from="Claudia Asencios Cifentes <claudia.asencios.cifentes@gmail.com>" | student="CHIARA ASENCIOS DIEGO ANGEL" (DNI=78524694, Grado="2.º de secundaria") | subject="Consulta académica y administrativa — Estudiante CHIARA ASENCIOS DIEGO ANGEL (2.º de secundaria)"
+[2026-09-14 08:07:33] [RPA_CLASSIFY] msg_id=191c0bf8a085b9e2 | ticket=POST-011 (CON-2026-0003) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=11, codigo="POST-011")
+[2026-09-14 09:12:31] [WEB_STAFF_ATT] msg_id=191c0bf8a085b9e2 | ticket=POST-011 (CON-2026-0003) | area="Secretaría Académica" | to="claudia.asencios.cifentes@gmail.com" | PUT /api/consultas/11 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-14 09:12:31 | TPR=65.00 min
+
+[2026-09-14 10:51:18] [GMAIL_API_IN] msg_id=191c0cf8a088b9e3 | from="Noemi Aguilar Ojeda <noemi.aguilar.ojeda@gmail.com>" | student="YENIA YUNI SUAREZ AGUILAR" (DNI=63355637, Grado="1.º de secundaria") | subject="Solicitud de libreta de notas — YENIA YUNI SUAREZ AGUILAR (DNI 63355637, 1.º de secundaria)"
+[2026-09-14 10:51:20] [RPA_CLASSIFY] msg_id=191c0cf8a088b9e3 | ticket=POST-012 (LIB-2026-0003) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=12, codigo="POST-012")
+[2026-09-14 11:53:14] [DRIVE_DOC_GEN] ticket=POST-012 | rpa_job_id=4 | archivo="Libreta_63355637_POST-012.pdf" | estado_ejecucion="Completado"
+[2026-09-14 11:53:18] [GMAIL_API_OUT] msg_id=191c0cf8a088b9e3 | ticket=POST-012 | to="noemi.aguilar.ojeda@gmail.com" | attachment="Libreta_63355637_POST-012.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-14 11:53:18 | TPR=62.00 min
+
+[2026-09-15 09:16:44] [GMAIL_API_IN] msg_id=191c0df8a08bb9e4 | from="Olinda Pilar Cánones Zuñiga <olinda.pilar.canones.zuniga@gmail.com>" | student="VALLEJO CAMONES MEEL AYELEN" (DNI=78137908, Grado="2.º de secundaria") | subject="Actualización de datos de contacto en padrón — VALLEJO CAMONES MEEL AYELEN (DNI 78137908)"
+[2026-09-15 09:16:46] [RPA_CLASSIFY] msg_id=191c0df8a08bb9e4 | ticket=POST-013 (ACT-2026-0003) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=13, codigo="POST-013")
+[2026-09-15 10:09:40] [DRIVE_DOC_GEN] ticket=POST-013 | rpa_job_id=5 | archivo="Constancia_Actualizacion_78137908_POST-013.pdf" | estado_ejecucion="Completado"
+[2026-09-15 10:09:44] [GMAIL_API_OUT] msg_id=191c0df8a08bb9e4 | ticket=POST-013 | to="olinda.pilar.canones.zuniga@gmail.com" | attachment="Constancia_Actualizacion_78137908_POST-013.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-15 10:09:44 | TPR=53.00 min
+
+[2026-09-15 12:38:09] [GMAIL_API_IN] msg_id=191c0ef8a08eb9e5 | from="Mora Sosa Shirley <shirley.mora.sosa@gmail.com>" | student="VALERIA ELIZABETH CARRANZA MORE" (DNI=76898699, Grado="1.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — VALERIA ELIZABETH CARRANZA MORE (DNI 76898699)"
+[2026-09-15 12:38:11] [RPA_CLASSIFY] msg_id=191c0ef8a08eb9e5 | ticket=POST-014 (REC-2026-0003) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=14, codigo="POST-014")
+[2026-09-15 14:09:09] [WEB_STAFF_ATT] msg_id=191c0ef8a08eb9e5 | ticket=POST-014 (REC-2026-0003) | area="Dirección / Administración" | to="shirley.mora.sosa@gmail.com" | PUT /api/reclamos/14 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-15 14:09:09 | TPR=91.00 min
+
+[2026-09-16 08:29:52] [GMAIL_API_IN] msg_id=191c0ff8a091b9e6 | from="Jason Isaias Mendoza Laveriano <jason.isaias.mendoza.laveriano@gmail.com>" | student="MENDOZA PORRAS WINNY KATE" (DNI=77889213, Grado="2.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — MENDOZA PORRAS WINNY KATE (2.º de secundaria)"
+[2026-09-16 08:29:54] [RPA_CLASSIFY] msg_id=191c0ff8a091b9e6 | ticket=POST-015 (ENT-2026-0003) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=15, codigo="POST-015")
+[2026-09-16 09:47:52] [WEB_STAFF_ATT] msg_id=191c0ff8a091b9e6 | ticket=POST-015 (ENT-2026-0003) | area="Dirección / Tutoría" | to="jason.isaias.mendoza.laveriano@gmail.com" | PUT /api/entrevistas/15 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-16 09:47:52 | TPR=78.00 min
+
+[2026-09-16 14:43:17] [GMAIL_API_IN] msg_id=191c10f8a094b9e7 | from="Neida Cubas León <neida.cubas.leon@gmail.com>" | student="NOVOA CUBAS ALEXIA JORYANY" (DNI=78394563, Grado="2.º de secundaria") | subject="Consulta académica y administrativa — Estudiante NOVOA CUBAS ALEXIA JORYANY (2.º de secundaria)"
+[2026-09-16 14:43:19] [RPA_CLASSIFY] msg_id=191c10f8a094b9e7 | ticket=POST-016 (CON-2026-0004) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=16, codigo="POST-016")
+[2026-09-16 16:40:17] [WEB_STAFF_ATT] msg_id=191c10f8a094b9e7 | ticket=POST-016 (CON-2026-0004) | area="Secretaría Académica" | to="neida.cubas.leon@gmail.com" | PUT /api/consultas/16 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-16 16:40:17 | TPR=117.00 min
+
+[2026-09-17 09:41:03] [GMAIL_API_IN] msg_id=191c11f8a097b9e8 | from="Maria Georgina Muñoz Solano <aldlsdfsd@gmail.com>" | student="CAMPOS MUÑOZ ANGEL SMITH" (DNI=79087548, Grado="3.º de secundaria") | subject="Solicitud de libreta de notas — CAMPOS MUÑOZ ANGEL SMITH (DNI 79087548, 3.º de secundaria)"
+[2026-09-17 09:41:05] [RPA_CLASSIFY] msg_id=191c11f8a097b9e8 | ticket=POST-017 (LIB-2026-0004) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=17, codigo="POST-017")
+[2026-09-17 10:20:59] [DRIVE_DOC_GEN] ticket=POST-017 | rpa_job_id=6 | archivo="Libreta_79087548_POST-017.pdf" | estado_ejecucion="Completado"
+[2026-09-17 10:21:03] [GMAIL_API_OUT] msg_id=191c11f8a097b9e8 | ticket=POST-017 | to="aldlsdfsd@gmail.com" | attachment="Libreta_79087548_POST-017.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-17 10:21:03 | TPR=40.00 min
+
+[2026-09-17 11:19:28] [GMAIL_API_IN] msg_id=191c12f8a09ab9e0 | from="Mayra Liz Zumaeta Ruiz <dchaupis.caoticio@gmail.com>" | student="QUEVEDO ZUMAETA BRENDA DEL PILAR" (DNI=90092329, Grado="3.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — QUEVEDO ZUMAETA BRENDA DEL PILAR (3.º de secundaria)"
+[2026-09-17 11:19:30] [RPA_CLASSIFY] msg_id=191c12f8a09ab9e0 | ticket=POST-018 (ENT-2026-0004) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=18, codigo="POST-018")
+[2026-09-17 11:19:33] [QUEUE_PENDING] msg_id=191c12f8a09ab9e0 | ticket=POST-018 (ENT-2026-0004) | area="Dirección / Tutoría" | estado="Pendiente" | fecha_primera_respuesta=NULL | TPR=NULL (Pendiente al cierre de corte pos-test)
+
+[2026-09-18 08:53:46] [GMAIL_API_IN] msg_id=191c13f8a09db9e1 | from="Genoveva Garcia Chasquero <genoveva.garcia.chasquero@gmail.com>" | student="CRUZ GARCIA KEVIN JUNIOR" (DNI=78384455, Grado="2.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — CRUZ GARCIA KEVIN JUNIOR (DNI 78384455)"
+[2026-09-18 08:53:48] [RPA_CLASSIFY] msg_id=191c13f8a09db9e1 | ticket=POST-019 (REC-2026-0004) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=19, codigo="POST-019")
+[2026-09-18 10:06:46] [WEB_STAFF_ATT] msg_id=191c13f8a09db9e1 | ticket=POST-019 (REC-2026-0004) | area="Dirección / Administración" | to="genoveva.garcia.chasquero@gmail.com" | PUT /api/reclamos/19 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-18 10:06:46 | TPR=73.00 min
+
+[2026-09-18 13:27:11] [GMAIL_API_IN] msg_id=191c14f8a0a0b9e2 | from="Gladys Llanca Calixto <gladys.llanca.calixto@gmail.com>" | student="GONZALES LLANCA JESUS" (DNI=78281007, Grado="2.º de secundaria") | subject="Actualización de datos de contacto en padrón — GONZALES LLANCA JESUS (DNI 78281007)"
+[2026-09-18 13:27:13] [RPA_CLASSIFY] msg_id=191c14f8a0a0b9e2 | ticket=POST-020 (ACT-2026-0004) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=20, codigo="POST-020")
+[2026-09-18 14:31:07] [DRIVE_DOC_GEN] ticket=POST-020 | rpa_job_id=7 | archivo="Constancia_Actualizacion_78281007_POST-020.pdf" | estado_ejecucion="Completado"
+[2026-09-18 14:31:11] [GMAIL_API_OUT] msg_id=191c14f8a0a0b9e2 | ticket=POST-020 | to="gladys.llanca.calixto@gmail.com" | attachment="Constancia_Actualizacion_78281007_POST-020.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-18 14:31:11 | TPR=64.00 min
+
+[2026-09-21 08:31:24] [GMAIL_API_IN] msg_id=191c15f8a0a3b9e3 | from="Ana Luz Olivares Quispe <olivares_quispe@gmail.com>" | student="TELLO OLIVARES ABIGAIL LUZ SOFIA" (DNI=77832366, Grado="3.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — TELLO OLIVARES ABIGAIL LUZ SOFIA (DNI 77832366)"
+[2026-09-21 08:31:26] [RPA_CLASSIFY] msg_id=191c15f8a0a3b9e3 | ticket=POST-021 (REC-2026-0005) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=21, codigo="POST-021")
+[2026-09-21 10:08:24] [WEB_STAFF_ATT] msg_id=191c15f8a0a3b9e3 | ticket=POST-021 (REC-2026-0005) | area="Dirección / Administración" | to="olivares_quispe@gmail.com" | PUT /api/reclamos/21 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-21 10:08:24 | TPR=97.00 min
+
+[2026-09-21 11:46:50] [GMAIL_API_IN] msg_id=191c16f8a0a6b9e4 | from="Luz Angelica Rodriguez Minaya <luzangelicarodriguezminaya379@gmail.com>" | student="BARBUDO RODRIGUEZ JOSHUA SMITH" (DNI=63688767, Grado="3.º de secundaria") | subject="Solicitud de libreta de notas — BARBUDO RODRIGUEZ JOSHUA SMITH (DNI 63688767, 3.º de secundaria)"
+[2026-09-21 11:46:52] [RPA_CLASSIFY] msg_id=191c16f8a0a6b9e4 | ticket=POST-022 (LIB-2026-0005) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=22, codigo="POST-022")
+[2026-09-21 12:37:46] [DRIVE_DOC_GEN] ticket=POST-022 | rpa_job_id=8 | archivo="Libreta_63688767_POST-022.pdf" | estado_ejecucion="Completado"
+[2026-09-21 12:37:50] [GMAIL_API_OUT] msg_id=191c16f8a0a6b9e4 | ticket=POST-022 | to="luzangelicarodriguezminaya379@gmail.com" | attachment="Libreta_63688767_POST-022.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-21 12:37:50 | TPR=51.00 min
+
+[2026-09-22 09:12:35] [GMAIL_API_IN] msg_id=191c17f8a0a9b9e5 | from="Medali Maximina Atoche <medali.maximina.atoche@gmail.com>" | student="MIA KATHERINE FLORES ATOCHE" (DNI=77308457, Grado="1.º de secundaria") | subject="Consulta académica y administrativa — Estudiante MIA KATHERINE FLORES ATOCHE (1.º de secundaria)"
+[2026-09-22 09:12:37] [RPA_CLASSIFY] msg_id=191c17f8a0a9b9e5 | ticket=POST-023 (CON-2026-0005) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=23, codigo="POST-023")
+[2026-09-22 11:12:35] [WEB_STAFF_ATT] msg_id=191c17f8a0a9b9e5 | ticket=POST-023 (CON-2026-0005) | area="Secretaría Académica" | to="medali.maximina.atoche@gmail.com" | PUT /api/consultas/23 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-22 11:12:35 | TPR=120.00 min
+
+[2026-09-22 14:05:19] [GMAIL_API_IN] msg_id=191c18f8a0acb9e6 | from="Maribel Velazque Llocclla <juni_quindev@gmail.com>" | student="QUINDE VELASQUE JUNIOR" (DNI=78811028, Grado="3.º de secundaria") | subject="Actualización de datos de contacto en padrón — QUINDE VELASQUE JUNIOR (DNI 78811028)"
+[2026-09-22 14:05:21] [RPA_CLASSIFY] msg_id=191c18f8a0acb9e6 | ticket=POST-024 (ACT-2026-0005) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=24, codigo="POST-024")
+[2026-09-22 15:04:15] [DRIVE_DOC_GEN] ticket=POST-024 | rpa_job_id=9 | archivo="Constancia_Actualizacion_78811028_POST-024.pdf" | estado_ejecucion="Completado"
+[2026-09-22 15:04:19] [GMAIL_API_OUT] msg_id=191c18f8a0acb9e6 | ticket=POST-024 | to="juni_quindev@gmail.com" | attachment="Constancia_Actualizacion_78811028_POST-024.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-22 15:04:19 | TPR=59.00 min
+
+[2026-09-23 08:44:08] [GMAIL_API_IN] msg_id=191c19f8a0afb9e7 | from="Edy Arteaga Silva <edy.arteaga.silva@gmail.com>" | student="ELVIS ARIEL NAUCA ARTEAGA" (DNI=77107031, Grado="1.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — ELVIS ARIEL NAUCA ARTEAGA (1.º de secundaria)"
+[2026-09-23 08:44:10] [RPA_CLASSIFY] msg_id=191c19f8a0afb9e7 | ticket=POST-025 (ENT-2026-0005) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=25, codigo="POST-025")
+[2026-09-23 10:01:08] [WEB_STAFF_ATT] msg_id=191c19f8a0afb9e7 | ticket=POST-025 (ENT-2026-0005) | area="Dirección / Tutoría" | to="edy.arteaga.silva@gmail.com" | PUT /api/entrevistas/25 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-23 10:01:08 | TPR=77.00 min
+
+[2026-09-23 10:18:42] [GMAIL_API_IN] msg_id=191c1af8a0b2b9e8 | from="Paola Araceli Campaña Espinoza <zocsolis26@gmail.com>" | student="NAVARRO CAMPAÑA AISHA ARIANA" (DNI=79993448, Grado="3.º de secundaria") | subject="Solicitud de libreta de notas — NAVARRO CAMPAÑA AISHA ARIANA (DNI 79993448, 3.º de secundaria)"
+[2026-09-23 10:18:44] [RPA_CLASSIFY] msg_id=191c1af8a0b2b9e8 | ticket=POST-026 (LIB-2026-0006) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=26, codigo="POST-026")
+[2026-09-23 11:03:38] [DRIVE_DOC_GEN] ticket=POST-026 | rpa_job_id=10 | archivo="Libreta_79993448_POST-026.pdf" | estado_ejecucion="Completado"
+[2026-09-23 11:03:42] [GMAIL_API_OUT] msg_id=191c1af8a0b2b9e8 | ticket=POST-026 | to="zocsolis26@gmail.com" | attachment="Libreta_79993448_POST-026.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-23 11:03:42 | TPR=45.00 min
+
+[2026-09-24 09:29:16] [GMAIL_API_IN] msg_id=191c1bf8a0b5b9e0 | from="Mendoza Sulca Mayoni <mendozasulcam@gmail.com>" | student="PALOMINO MENDOZA SAÚL" (DNI=81747516, Grado="3.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — PALOMINO MENDOZA SAÚL (3.º de secundaria)"
+[2026-09-24 09:29:18] [RPA_CLASSIFY] msg_id=191c1bf8a0b5b9e0 | ticket=POST-027 (ENT-2026-0006) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=27, codigo="POST-027")
+[2026-09-24 09:29:21] [QUEUE_PENDING] msg_id=191c1bf8a0b5b9e0 | ticket=POST-027 (ENT-2026-0006) | area="Dirección / Tutoría" | estado="Pendiente" | fecha_primera_respuesta=NULL | TPR=NULL (Pendiente al cierre de corte pos-test)
+
+[2026-09-24 12:51:33] [GMAIL_API_IN] msg_id=191c1cf8a0b8b9e1 | from="Dorcas Lujan Jeri <dorcaslujan@gmail.com>" | student="GARCIA LUJAN YANIRA ISABEL" (DNI=78337130, Grado="2.º de secundaria") | subject="Consulta académica y administrativa — Estudiante GARCIA LUJAN YANIRA ISABEL (2.º de secundaria)"
+[2026-09-24 12:51:35] [RPA_CLASSIFY] msg_id=191c1cf8a0b8b9e1 | ticket=POST-028 (CON-2026-0006) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=28, codigo="POST-028")
+[2026-09-24 14:21:33] [WEB_STAFF_ATT] msg_id=191c1cf8a0b8b9e1 | ticket=POST-028 (CON-2026-0006) | area="Secretaría Académica" | to="dorcaslujan@gmail.com" | PUT /api/consultas/28 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-24 14:21:33 | TPR=90.00 min
+
+[2026-09-25 08:15:27] [GMAIL_API_IN] msg_id=191c1df8a0bbb9e2 | from="Daris Cortez Carrión <dariscarrion@gmail.com>" | student="SALVADOR CORTEZ CAMILA ANAHI" (DNI=77640186, Grado="3.º de secundaria") | subject="Actualización de datos de contacto en padrón — SALVADOR CORTEZ CAMILA ANAHI (DNI 77640186)"
+[2026-09-25 08:15:29] [RPA_CLASSIFY] msg_id=191c1df8a0bbb9e2 | ticket=POST-029 (ACT-2026-0006) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=29, codigo="POST-029")
+[2026-09-25 09:12:23] [DRIVE_DOC_GEN] ticket=POST-029 | rpa_job_id=11 | archivo="Constancia_Actualizacion_77640186_POST-029.pdf" | estado_ejecucion="Completado"
+[2026-09-25 09:12:27] [GMAIL_API_OUT] msg_id=191c1df8a0bbb9e2 | ticket=POST-029 | to="dariscarrion@gmail.com" | attachment="Constancia_Actualizacion_77640186_POST-029.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-25 09:12:27 | TPR=57.00 min
+
+[2026-09-25 15:09:48] [GMAIL_API_IN] msg_id=191c1ef8a0beb9e3 | from="Luisa Ceverina Hualleatuero Quispe <luisa.ceverina.hualleatuero.quispe@gmail.com>" | student="PALMA HUALLPATUERO BASTIAN MIJAÍL ELÍAS" (DNI=78354051, Grado="2.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — PALMA HUALLPATUERO BASTIAN MIJAÍL ELÍAS (DNI 78354051)"
+[2026-09-25 15:09:50] [RPA_CLASSIFY] msg_id=191c1ef8a0beb9e3 | ticket=POST-030 (REC-2026-0006) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=30, codigo="POST-030")
+[2026-09-25 16:16:48] [WEB_STAFF_ATT] msg_id=191c1ef8a0beb9e3 | ticket=POST-030 (REC-2026-0006) | area="Dirección / Administración" | to="luisa.ceverina.hualleatuero.quispe@gmail.com" | PUT /api/reclamos/30 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-25 16:16:48 | TPR=67.00 min
+
+[2026-09-28 08:04:12] [GMAIL_API_IN] msg_id=191c1ff8a0c1b9e4 | from="Doris Marin Huamán <esperanzamarin203@hotmail.com>" | student="BIANCA GUTIERREZ MARI" (DNI=70833957, Grado="1.º de secundaria") | subject="Solicitud de libreta de notas — BIANCA GUTIERREZ MARI (DNI 70833957, 1.º de secundaria)"
+[2026-09-28 08:04:14] [RPA_CLASSIFY] msg_id=191c1ff8a0c1b9e4 | ticket=POST-031 (LIB-2026-0007) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=31, codigo="POST-031")
+[2026-09-28 09:07:08] [DRIVE_DOC_GEN] ticket=POST-031 | rpa_job_id=12 | archivo="Libreta_70833957_POST-031.pdf" | estado_ejecucion="Completado"
+[2026-09-28 09:07:12] [GMAIL_API_OUT] msg_id=191c1ff8a0c1b9e4 | ticket=POST-031 | to="esperanzamarin203@hotmail.com" | attachment="Libreta_70833957_POST-031.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-28 09:07:12 | TPR=63.00 min
+
+[2026-09-28 10:37:55] [GMAIL_API_IN] msg_id=191c20f8a0c4b9e5 | from="David Rosales Huacho <rosaleshuachodavid@gmail.com>" | student="DAIVY ARCANGEL ROSALES VENTURA" (DNI=77304822, Grado="1.º de secundaria") | subject="Actualización de datos de contacto en padrón — DAIVY ARCANGEL ROSALES VENTURA (DNI 77304822)"
+[2026-09-28 10:37:57] [RPA_CLASSIFY] msg_id=191c20f8a0c4b9e5 | ticket=POST-032 (ACT-2026-0007) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=32, codigo="POST-032")
+[2026-09-28 11:30:51] [DRIVE_DOC_GEN] ticket=POST-032 | rpa_job_id=13 | archivo="Constancia_Actualizacion_77304822_POST-032.pdf" | estado_ejecucion="Completado"
+[2026-09-28 11:30:55] [GMAIL_API_OUT] msg_id=191c20f8a0c4b9e5 | ticket=POST-032 | to="rosaleshuachodavid@gmail.com" | attachment="Constancia_Actualizacion_77304822_POST-032.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-28 11:30:55 | TPR=53.00 min
+
+[2026-09-29 09:21:40] [GMAIL_API_IN] msg_id=191c21f8a0c7b9e6 | from="Sandra Machaca Arenas <sandramarenas@gmail.com>" | student="GARCIA MACHACA MIKELA ALESSANDRA" (DNI=90092329, Grado="3.º de secundaria") | subject="Consulta académica y administrativa — Estudiante GARCIA MACHACA MIKELA ALESSANDRA (3.º de secundaria)"
+[2026-09-29 09:21:42] [RPA_CLASSIFY] msg_id=191c21f8a0c7b9e6 | ticket=POST-033 (CON-2026-0007) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=33, codigo="POST-033")
+[2026-09-29 10:59:40] [WEB_STAFF_ATT] msg_id=191c21f8a0c7b9e6 | ticket=POST-033 (CON-2026-0007) | area="Secretaría Académica" | to="sandramarenas@gmail.com" | PUT /api/consultas/33 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-29 10:59:40 | TPR=98.00 min
+
+[2026-09-29 13:48:26] [GMAIL_API_IN] msg_id=191c22f8a0cab9e7 | from="Rossy Mariella Lipe Capurro <lip_capurro-26@gmail.com>" | student="ROJAS LIPE BRYANA KAORI" (DNI=79216187, Grado="1.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — ROJAS LIPE BRYANA KAORI (DNI 79216187)"
+[2026-09-29 13:48:28] [RPA_CLASSIFY] msg_id=191c22f8a0cab9e7 | ticket=POST-034 (REC-2026-0007) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=34, codigo="POST-034")
+[2026-09-29 15:07:26] [WEB_STAFF_ATT] msg_id=191c22f8a0cab9e7 | ticket=POST-034 (REC-2026-0007) | area="Dirección / Administración" | to="lip_capurro-26@gmail.com" | PUT /api/reclamos/34 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-29 15:07:26 | TPR=79.00 min
+
+[2026-09-30 08:52:13] [GMAIL_API_IN] msg_id=191c23f8a0cdb9e8 | from="Carmen Noelita Valqui Oyarce <carmenvalquio@gmail.com>" | student="VERGARAY VALQUI VANESA SAYURI" (DNI=77858471, Grado="3.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — VERGARAY VALQUI VANESA SAYURI (3.º de secundaria)"
+[2026-09-30 08:52:15] [RPA_CLASSIFY] msg_id=191c23f8a0cdb9e8 | ticket=POST-035 (ENT-2026-0007) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=35, codigo="POST-035")
+[2026-09-30 10:26:13] [WEB_STAFF_ATT] msg_id=191c23f8a0cdb9e8 | ticket=POST-035 (ENT-2026-0007) | area="Dirección / Tutoría" | to="carmenvalquio@gmail.com" | PUT /api/entrevistas/35 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-30 10:26:13 | TPR=94.00 min
+
+[2026-09-30 11:14:37] [GMAIL_API_IN] msg_id=191c24f8a0d0b9e0 | from="Evelia Graciela Casco Conde <huamancascok@gmail.com>" | student="HUAMAN CASCO KIARA EVOLET MILAGROS" (DNI=77936036, Grado="3.º de secundaria") | subject="Solicitud de libreta de notas — HUAMAN CASCO KIARA EVOLET MILAGROS (DNI 77936036, 3.º de secundaria)"
+[2026-09-30 11:14:39] [RPA_CLASSIFY] msg_id=191c24f8a0d0b9e0 | ticket=POST-036 (LIB-2026-0008) | tipo="Libreta de notas" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=36, codigo="POST-036")
+[2026-09-30 12:13:33] [DRIVE_DOC_GEN] ticket=POST-036 | rpa_job_id=14 | archivo="Libreta_77936036_POST-036.pdf" | estado_ejecucion="Completado"
+[2026-09-30 12:13:37] [GMAIL_API_OUT] msg_id=191c24f8a0d0b9e0 | ticket=POST-036 | to="huamancascok@gmail.com" | attachment="Libreta_77936036_POST-036.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-09-30 12:13:37 | TPR=59.00 min
+
+[2026-10-01 09:08:29] [GMAIL_API_IN] msg_id=191c25f8a0d3b9e1 | from="Kelin Pilar Valle Carranza <padillasunnywiese@gmail.com>" | student="PADILLA VALLE SUNNY MELINA" (DNI=77947832, Grado="3.º de secundaria") | subject="Consulta académica y administrativa — Estudiante PADILLA VALLE SUNNY MELINA (3.º de secundaria)"
+[2026-10-01 09:08:31] [RPA_CLASSIFY] msg_id=191c25f8a0d3b9e1 | ticket=POST-037 (CON-2026-0008) | tipo="Consulta" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=37, codigo="POST-037")
+[2026-10-01 10:23:29] [WEB_STAFF_ATT] msg_id=191c25f8a0d3b9e1 | ticket=POST-037 (CON-2026-0008) | area="Secretaría Académica" | to="padillasunnywiese@gmail.com" | PUT /api/consultas/37 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-10-01 10:23:29 | TPR=75.00 min
+
+[2026-10-01 14:26:51] [GMAIL_API_IN] msg_id=191c26f8a0d6b9e2 | from="Lucía Isidro Canorio <mari23_1980@hotmail.com>" | student="NORMAN LITMAN RODRIGUEZ ISIDRO" (DNI=62051234, Grado="1.º de secundaria") | subject="Actualización de datos de contacto en padrón — NORMAN LITMAN RODRIGUEZ ISIDRO (DNI 62051234)"
+[2026-10-01 14:26:53] [RPA_CLASSIFY] msg_id=191c26f8a0d6b9e2 | ticket=POST-038 (ACT-2026-0008) | tipo="Actualización de datos" | area="Secretaría Académica" | POST /api/requests/rpa-sync -> 200 OK (id=38, codigo="POST-038")
+[2026-10-01 15:23:47] [DRIVE_DOC_GEN] ticket=POST-038 | rpa_job_id=15 | archivo="Constancia_Actualizacion_62051234_POST-038.pdf" | estado_ejecucion="Completado"
+[2026-10-01 15:23:51] [GMAIL_API_OUT] msg_id=191c26f8a0d6b9e2 | ticket=POST-038 | to="mari23_1980@hotmail.com" | attachment="Constancia_Actualizacion_62051234_POST-038.pdf" | POST /api/requests/rpa-sync -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-10-01 15:23:51 | TPR=57.00 min
+
+[2026-10-02 08:39:04] [GMAIL_API_IN] msg_id=191c27f8a0d9b9e3 | from="Ana María Sánchez Villar <anamaria801@hotmail.it>" | student="MAMANI SANCHEZ ALONDRA KIARA" (DNI=78368015, Grado="2.º de secundaria") | subject="Reclamo administrativo sobre registro de servicio — MAMANI SANCHEZ ALONDRA KIARA (DNI 78368015)"
+[2026-10-02 08:39:06] [RPA_CLASSIFY] msg_id=191c27f8a0d9b9e3 | ticket=POST-039 (REC-2026-0008) | tipo="Reclamo" | area="Dirección / Administración" | POST /api/requests/rpa-sync -> 200 OK (id=39, codigo="POST-039")
+[2026-10-02 10:31:04] [WEB_STAFF_ATT] msg_id=191c27f8a0d9b9e3 | ticket=POST-039 (REC-2026-0008) | area="Dirección / Administración" | to="anamaria801@hotmail.it" | PUT /api/reclamos/39 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-10-02 10:31:04 | TPR=112.00 min
+
+[2026-10-02 11:57:18] [GMAIL_API_IN] msg_id=191c28f8a0dcb9e4 | from="Angelina Olivares Quispe <tarapaca88@gmail.com>" | student="DIANA ANGELINA USCATA OLIVARES" (DNI=77513797, Grado="1.º de secundaria") | subject="Solicitud de entrevista con Tutoría / Dirección — DIANA ANGELINA USCATA OLIVARES (1.º de secundaria)"
+[2026-10-02 11:57:20] [RPA_CLASSIFY] msg_id=191c28f8a0dcb9e4 | ticket=POST-040 (ENT-2026-0008) | tipo="Entrevista" | area="Dirección / Tutoría" | POST /api/requests/rpa-sync -> 200 OK (id=40, codigo="POST-040")
+[2026-10-02 13:20:18] [WEB_STAFF_ATT] msg_id=191c28f8a0dcb9e4 | ticket=POST-040 (ENT-2026-0008) | area="Dirección / Tutoría" | to="tarapaca88@gmail.com" | PUT /api/entrevistas/40 -> 200 OK | estado="Atendida" | fecha_primera_respuesta=2026-10-02 13:20:18 | TPR=83.00 min
+
+# ==============================================================================================
+# RESUMEN DE AUDITORÍA: Total POS-TEST = 40 | Atendidas = 36 (PSA = 90.00%) | Pendientes = 4 (10.00%) | RPA Autónomo = 15 | RPA + Panel Web = 21
+# ESTADÍSTICOS TPR    : n_atendidas = 36 | Media TPR = 74.03 min | Mediana = 72.50 min | DE = 21.37 min | Min = 40.00 | Max = 120.00
+# ==============================================================================================

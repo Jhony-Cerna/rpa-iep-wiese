@@ -84,7 +84,10 @@ def _a_dict(r: Request) -> dict:
 def listar_consultas(db: Session = Depends(deps.get_db)):
     reqs = (
         db.query(Request)
-        .filter(Request.tipo_solicitud == "Consulta")
+        .filter(
+            Request.tipo_solicitud == "Consulta",
+            (Request.codigo.is_(None)) | (~Request.codigo.like("PRE-%")),
+        )
         .order_by(Request.fecha_recepcion.desc())
         .all()
     )

@@ -12,30 +12,72 @@ from app.schemas.request import RequestCreate, RequestResponse, RequestUpdate
 
 router = APIRouter()
 
+def _parse_observaciones_meta(obs: str | None) -> tuple[str | None, str | None]:
+    """Extrae nombre del estudiante y código correlativo por categoría desde observaciones."""
+    if not obs:
+        return None, None
+    estudiante = None
+    expediente = None
+    for part in obs.split("|"):
+        chunk = part.strip()
+        if chunk.lower().startswith("estudiante:"):
+            estudiante = chunk.split(":", 1)[1].strip()
+        elif chunk.lower().startswith("expediente:"):
+            expediente = chunk.split(":", 1)[1].strip()
+    return estudiante, expediente
+
+
 @router.get("/list")
-def list_requests_public(db: Session = Depends(deps.get_db)):
+def list_requests_public(
+    fase: str = "post",
+    tipo: str | None = None,
+    db: Session = Depends(deps.get_db),
+):
     """
     Endpoint público para el panel frontend.
-    Retorna todas las solicitudes ordenadas por fecha de recepción (más reciente primero).
+    Por defecto retorna las solicitudes activas / POS-TEST (`fase=post`).
+    Soporta `?fase=pre`, `?fase=all` y `?tipo=...`.
     """
-    reqs = db.query(Request).order_by(Request.fecha_recepcion.desc()).all()
+    q = db.query(Request)
+    fase_norm = (fase or "post").lower()
+    if fase_norm == "pre":
+        q = q.filter(Request.codigo.like("PRE-%"))
+    elif fase_norm != "all":
+        q = q.filter((Request.codigo.is_(None)) | (~Request.codigo.like("PRE-%")))
+
+    if tipo:
+        q = q.filter(Request.tipo_solicitud == tipo)
+
+    reqs = q.order_by(Request.id.asc()).all()
     result = []
     for r in reqs:
+        estudiante, expediente = _parse_observaciones_meta(r.observaciones)
+        tpr_minutos = None
+        if r.fecha_primera_respuesta and r.fecha_recepcion:
+            tpr_minutos = round(
+                (r.fecha_primera_respuesta - r.fecha_recepcion).total_seconds() / 60.0,
+                2,
+            )
         result.append({
             "id": r.id,
             "codigo": r.codigo or f"SOL-{r.id:04d}",
+            "expediente": expediente,
+            "gmail_message_id": r.gmail_message_id,
             "tipo_solicitud": r.tipo_solicitud or "Libreta de Notas",
             "canal_origen": r.canal_origen or "Gmail",
             "nombre_solicitante": r.nombre_solicitante,
             "correo_solicitante": r.correo_solicitante,
             "telefono_solicitante": r.telefono_solicitante,
+            "estudiante": estudiante,
             "prioridad": r.prioridad or "Normal",
             "area_responsable": r.area_responsable,
             "dni_estudiante": r.dni_estudiante,
             "grado": r.grado,
             "asunto": r.asunto,
             "descripcion": r.descripcion,
+            "observaciones": r.observaciones,
             "estado": r.estado,
+            "tpr_minutos": tpr_minutos,
             "fecha_recepcion": r.fecha_recepcion.isoformat() if r.fecha_recepcion else None,
             "fecha_primera_respuesta": r.fecha_primera_respuesta.isoformat() if r.fecha_primera_respuesta else None,
             "fecha_atencion": r.fecha_atencion.isoformat() if r.fecha_atencion else None,

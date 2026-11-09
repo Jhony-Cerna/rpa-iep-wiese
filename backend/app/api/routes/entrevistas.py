@@ -85,7 +85,10 @@ def _a_dict(r: Request) -> dict:
 def listar_entrevistas(db: Session = Depends(deps.get_db)):
     reqs = (
         db.query(Request)
-        .filter(Request.tipo_solicitud == "Entrevista")
+        .filter(
+            Request.tipo_solicitud == "Entrevista",
+            (Request.codigo.is_(None)) | (~Request.codigo.like("PRE-%")),
+        )
         .order_by(Request.fecha_recepcion.desc())
         .all()
     )

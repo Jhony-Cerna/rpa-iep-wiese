@@ -113,10 +113,13 @@ def _solicitud_a_dict(r: Request, ocultar_datos: bool = False) -> dict:
 
 @router.get("/list")
 def listar_quejas(db: Session = Depends(deps.get_db)):
-    """Lista todas las quejas y sugerencias (muestra datos anónimos de forma protegida)."""
+    """Lista todas las quejas y sugerencias activas/POS-TEST (muestra datos anónimos de forma protegida)."""
     reqs = (
         db.query(Request)
-        .filter(Request.tipo_solicitud == "Queja o Sugerencia")
+        .filter(
+            Request.tipo_solicitud == "Queja o Sugerencia",
+            (Request.codigo.is_(None)) | (~Request.codigo.like("PRE-%")),
+        )
         .order_by(Request.fecha_recepcion.desc())
         .all()
     )

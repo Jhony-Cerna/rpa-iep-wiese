@@ -90,10 +90,13 @@ def _solicitud_a_dict(r: Request) -> dict:
 
 @router.get("/list")
 def listar_actualizaciones(db: Session = Depends(deps.get_db)):
-    """Lista todas las solicitudes de actualización de datos."""
+    """Lista todas las solicitudes activas/POS-TEST de actualización de datos."""
     reqs = (
         db.query(Request)
-        .filter(Request.tipo_solicitud == "Actualizacion de Datos")
+        .filter(
+            Request.tipo_solicitud == "Actualizacion de Datos",
+            (Request.codigo.is_(None)) | (~Request.codigo.like("PRE-%")),
+        )
         .order_by(Request.fecha_recepcion.desc())
         .all()
     )

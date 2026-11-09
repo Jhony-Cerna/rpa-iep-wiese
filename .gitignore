@@ -45,6 +45,8 @@ frontend/dist/
 frontend/dist-ssr/
 *.local
 *.log
+!backend/auditoria/*.log
+!backend/auditoria/*.csv
 npm-debug.log*
 
 # ==========================================================

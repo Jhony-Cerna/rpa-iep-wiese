@@ -96,10 +96,13 @@ def _solicitud_a_dict(r: Request) -> dict:
 
 @router.get("/list")
 def listar_reclamos(db: Session = Depends(deps.get_db)):
-    """Lista todas las solicitudes de reclamo."""
+    """Lista todas las solicitudes activas/POS-TEST de reclamo."""
     reqs = (
         db.query(Request)
-        .filter(Request.tipo_solicitud == "Reclamo")
+        .filter(
+            Request.tipo_solicitud == "Reclamo",
+            (Request.codigo.is_(None)) | (~Request.codigo.like("PRE-%")),
+        )
         .order_by(Request.fecha_recepcion.desc())
         .all()
     )
